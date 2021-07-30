@@ -8,6 +8,7 @@ services:
         restart: always
         ports:
             - 5432:5432 #usual port for postgres
+            - 9229:9229
         environment:
             - POSTGRES_USER=postgres # docker
             - POSTGRES_PASSWORD=docker # ignite
@@ -16,7 +17,7 @@ services:
             - pgdata:/data/postgres
         #network_mode: host
     app:
-        build:   .
+        build: .
         container_name: fin_api_unittest
         restart: always
         ports:
